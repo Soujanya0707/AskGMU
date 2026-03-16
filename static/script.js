@@ -6,7 +6,7 @@ function addMessage(sender, text, source = "", path = "") {
   if (sender === "user") {
     msg.innerHTML = "<b class='user'>You:</b> " + text;
   } else {
-    msg.innerHTML = "<b class='bot'>Bot:</b> " + text;
+    msg.innerHTML = "<b class='bot'>AskGmu:</b> " + text;
     if (source != "") {
       msg.innerHTML += "<div class='source'>Source: " + source + 
       " — <a href='file:///" + path.replace(/\\/g, "/") + "' target='_blank'>Open File</a></div>";
