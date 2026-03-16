@@ -41,7 +41,7 @@ def search_query(query):
     for word in words:
 
         cur.execute("""
-        SELECT documents.id, documents.name, documents.content
+        SELECT documents.id, documents.name, documents.content, documents.path
         FROM keywords
         JOIN documents
         ON keywords.doc_id = documents.id
@@ -58,6 +58,7 @@ def search_query(query):
                 results[doc_id] = {
                     "name": row[1],
                     "content": row[2],
+                    "path": row[3],
                     "score": 0
                 }
 
@@ -66,7 +67,7 @@ def search_query(query):
     conn.close()
 
     if not results:
-        return "Sorry, I couldn't find relevant information.", ""
+        return "Sorry, I couldn't find relevant information.", "",""
 
     # rank results by score
     best_doc = max(results.values(), key=lambda x: x["score"])
@@ -74,8 +75,9 @@ def search_query(query):
     
     answer = get_best_chunk(best_doc["content"], words)
     source = best_doc["name"]
+    source_path = best_doc["path"]
 
-    return answer, source
+    return answer, source, source_path
 
 #routes
 @app.route("/")
@@ -88,11 +90,12 @@ def ask():
 
     user_query = request.json["message"]
 
-    answer, source = search_query(user_query)
+    answer, source, source_path = search_query(user_query)
 
     return jsonify({
         "answer": answer,
-        "source": source
+        "source": source,
+        "path": source_path
     })
 
 #refresh data button (lateast update])
