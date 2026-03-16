@@ -32,8 +32,8 @@ def build_index():
                 text = f.read()
 
             cur.execute(
-                "INSERT INTO documents(name, content) VALUES(?, ?)",
-                (file, text)
+                "INSERT INTO documents(name, content, path) VALUES(?, ?, ?)",
+                (file, text, path)
             )
 
             doc_id = cur.lastrowid

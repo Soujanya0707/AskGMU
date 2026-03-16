@@ -8,7 +8,8 @@ function addMessage(sender, text, source = "") {
   } else {
     msg.innerHTML = "<b class='bot'>Bot:</b> " + text;
     if (source != "") {
-      msg.innerHTML += "<div class='source'>Source: " + source + "</div>";
+      msg.innerHTML += "<div class='source'>Source: " + source + 
+      " — <a href='file:///" + data.path.replace(/\\/g, "/") + "' target='_blank'>Open File</a></div>";
     }
   }
 
