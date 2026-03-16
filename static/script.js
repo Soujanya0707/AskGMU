@@ -1,4 +1,4 @@
-function addMessage(sender, text, source = "") {
+function addMessage(sender, text, source = "", path = "") {
   let chat = document.getElementById("chatbox");
   let msg = document.createElement("div");
   msg.className = "message";
@@ -9,7 +9,7 @@ function addMessage(sender, text, source = "") {
     msg.innerHTML = "<b class='bot'>Bot:</b> " + text;
     if (source != "") {
       msg.innerHTML += "<div class='source'>Source: " + source + 
-      " — <a href='file:///" + data.path.replace(/\\/g, "/") + "' target='_blank'>Open File</a></div>";
+      " — <a href='file:///" + path.replace(/\\/g, "/") + "' target='_blank'>Open File</a></div>";
     }
   }
 
@@ -35,7 +35,7 @@ function sendMessage() {
   })
     .then(res => res.json())
     .then(data => {
-      addMessage("bot", data.answer, data.source);
+      addMessage("bot", data.answer, data.source, data.path);
     });
 }
 

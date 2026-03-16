@@ -9,11 +9,8 @@ os.makedirs(text_folder, exist_ok=True)
 
 
 def extract_pdf_text(pdf_path):
-
     text = ""
-
     try:
-
         with open(pdf_path, "rb") as file:
             reader = PyPDF2.PdfReader(file)
             for page in reader.pages:
@@ -37,20 +34,22 @@ for file in os.listdir(pdf_folder):
 
     if file.endswith(".pdf"):
 
+        txt_name = file.replace(".pdf", ".txt")
+        txt_path = os.path.join(text_folder, txt_name)
+
+        if os.path.exists(txt_path):          # add this
+            print("Skipping existing:", file)
+            continue
+
         pdf_path = os.path.join(pdf_folder, file)
 
         print("Processing:", file)
 
         text = extract_pdf_text(pdf_path)
 
-        txt_name = file.replace(".pdf", ".txt")
-
-        txt_path = os.path.join(text_folder, txt_name)
-
         if not text.strip():
             print("Skipping empty file:", file)
         else:
             with open(txt_path, "w", encoding="utf-8") as f:
                 f.write(text)
-
 print("\nPDF Processing Completed\n")
