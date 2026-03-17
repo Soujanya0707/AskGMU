@@ -1,72 +1,78 @@
 import os
-import PyPDF2
-import pytesseract
-from pdf2image import convert_from_path
+import ocrmypdf
+import pdfplumber
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-# folders
 pdf_folder = "data/pdfs"
 text_folder = "data/text"
+ocr_folder = "data/ocr_pdfs"
 
 os.makedirs(text_folder, exist_ok=True)
+os.makedirs(ocr_folder, exist_ok=True)
 
 MIN_TEXT_LENGTH = 80
 
-def extract_pdf_text(pdf_path):
+
+def process_pdf(pdf_path, ocr_path):
+    # Step 1 — OCR (only if not already done)
+    if not os.path.exists(ocr_path):
+        try:
+            ocrmypdf.ocr(pdf_path, ocr_path, skip_text=True, deskew=True, quiet=True)
+        except Exception as e:
+            print("OCR failed:", e)
+            return ""
+
+    # Step 2 — Extract text
     text = ""
+
     try:
-        with open(pdf_path, "rb") as file:
-            reader = PyPDF2.PdfReader(file)
-            for page in reader.pages:
+        with pdfplumber.open(ocr_path) as pdf:
+            for page in pdf.pages:
+
+                # tables
+                for table in page.extract_tables() or []:
+                    for row in table:
+                        row = [c.strip() for c in row if c and c.strip()]
+                        if row:
+                            text += " | ".join(row) + "\n"
+
+                # normal text
                 page_text = page.extract_text()
                 if page_text:
                     text += page_text + "\n"
+
     except Exception as e:
-        print("Error reading:", pdf_path, "→", e)
-        return ""
+        print("Extraction failed:", e)
 
-    return text
+    return text.strip()
 
-def extract_pdf_text_ocr(pdf_path):
-    text = ""
-    try:
-        images = convert_from_path(pdf_path, poppler_path=r"C:\poppler-25.12.0\Library\bin")
-        for image in images:
-            text += pytesseract.image_to_string(image) + "\n"
-    except Exception as e:
-        print("OCR failed:", pdf_path, "→", e)
-        return ""
-    return text
 
-print("\nStarting PDF Processing\n")
+print("\nProcessing PDFs...\n")
 
 for file in os.listdir(pdf_folder):
 
-    if file.endswith(".pdf"):
+    if not file.endswith(".pdf"):
+        continue
 
-        txt_name = file.replace(".pdf", ".txt")
-        txt_path = os.path.join(text_folder, txt_name)
+    pdf_path = os.path.join(pdf_folder, file)
+    ocr_path = os.path.join(ocr_folder, file)
+    txt_path = os.path.join(text_folder, file.replace(".pdf", ".txt"))
 
-        if os.path.exists(txt_path):
-            with open(txt_path, "r", encoding="utf-8") as f:
-                existing_text = f.read().strip()
-            if len(existing_text) >= MIN_TEXT_LENGTH:
-                print("Skipping existing:", file)
+    # skip if already processed
+    if os.path.exists(txt_path):
+        with open(txt_path, "r", encoding="utf-8") as f:
+            if len(f.read().strip()) >= MIN_TEXT_LENGTH:
+                print("Skipping:", file)
                 continue
-            print("Reprocessing weak text file:", file)
 
-        pdf_path = os.path.join(pdf_folder, file)
-        print("Processing:", file)
-        text = extract_pdf_text(pdf_path)
+    print("Processing:", file)
 
-        if len(text.strip()) < MIN_TEXT_LENGTH:  # changed from "not text.strip()"
-            print("Trying OCR for:", file)
-            text = extract_pdf_text_ocr(pdf_path)
+    text = process_pdf(pdf_path, ocr_path)
 
-        if not text.strip():
-            print("Skipping empty file:", file)
-        else:
-            with open(txt_path, "w", encoding="utf-8") as f:
-                f.write(text)
-print("\nPDF Processing Completed\n")
+    if text:
+        with open(txt_path, "w", encoding="utf-8") as f:
+            f.write(text)
+        print("Saved:", file)
+    else:
+        print("Failed:", file)
+
+print("\nDone\n")

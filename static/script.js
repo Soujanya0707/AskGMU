@@ -7,9 +7,11 @@ function addMessage(sender, text, source = "", path = "") {
     msg.innerHTML = "<b class='user'>You:</b> " + text;
   } else {
     msg.innerHTML = "<b class='bot'>AskGmu:</b> " + text;
-    if (source != "") {
-      msg.innerHTML += "<div class='source'>Source: " + source + 
-      " — <a href='file:///" + path.replace(/\\/g, "/") + "' target='_blank'>Open File</a></div>";
+
+    if (source) {
+      msg.innerHTML +=
+        "<div class='source'>Source: " + source +
+        " — <a href='/open_file?path=" + encodeURIComponent(path) + "' target='_blank'>Open File</a></div>";
     }
   }
 
@@ -19,12 +21,13 @@ function addMessage(sender, text, source = "", path = "") {
 
 function sendMessage() {
   let input = document.getElementById("userInput");
-  let message = input.value;
+  let message = input.value.trim();
 
-  if (message === "") return;
+  if (!message) return;
 
   addMessage("user", message);
   input.value = "";
+  input.disabled = true;
 
   fetch("/ask", {
     method: "POST",
@@ -36,6 +39,11 @@ function sendMessage() {
     .then(res => res.json())
     .then(data => {
       addMessage("bot", data.answer, data.source, data.path);
+      input.disabled = false;
+    })
+    .catch(() => {
+      addMessage("bot", "Error: Server not responding");
+      input.disabled = false;
     });
 }
 
@@ -46,5 +54,8 @@ function refreshData() {
     .then(res => res.json())
     .then(data => {
       addMessage("bot", data.message);
+    })
+    .catch(() => {
+      addMessage("bot", "Error refreshing data");
     });
 }

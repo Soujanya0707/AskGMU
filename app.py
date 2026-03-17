@@ -5,31 +5,6 @@ import subprocess
 
 app = Flask(__name__)
 
-def get_best_chunk(content, query_words, chunk_size=1):
-
-    sentences = content.replace("\n", " ").split(".")
-
-    best_score = 0
-    best_chunk = ""
-
-    for i in range(len(sentences)):
-
-        chunk = ". ".join(sentences[i:i+chunk_size])
-        chunk_lower = chunk.lower()
-
-        score = sum(1 for word in query_words if word in chunk_lower)
-
-        if score > best_score:
-            best_score = score
-            best_chunk = chunk
-
-    if best_chunk:
-        return best_chunk.strip()
-
-    return content[:300]
-
-
-
 def search_query(query):
     words = preprocess(query)
     words = expand_words(words)
@@ -39,7 +14,6 @@ def search_query(query):
     results = {}
 
     for word in words:
-
         cur.execute("""
         SELECT documents.id, documents.name, documents.content, documents.path
         FROM keywords
@@ -51,7 +25,6 @@ def search_query(query):
         rows = cur.fetchall()
 
         for row in rows:
-
             doc_id = row[0]
 
             if doc_id not in results:
@@ -61,7 +34,6 @@ def search_query(query):
                     "path": row[3],
                     "score": 0
                 }
-
             results[doc_id]["score"] += 1
 
     conn.close()
@@ -70,14 +42,9 @@ def search_query(query):
         return "Sorry, I couldn't find relevant information.", "",""
 
     # rank results by score
-    best_doc = max(results.values(), key=lambda x: x["score"])
+    best = max(results.values(), key=lambda x: x["score"])
 
-    
-    answer = get_best_chunk(best_doc["content"], words)
-    source = best_doc["name"]
-    source_path = best_doc["path"]
-
-    return answer, source, source_path
+    return best["content"], best["name"], best["path"]
 
 #routes
 @app.route("/")
@@ -89,7 +56,6 @@ def home():
 def ask():
 
     user_query = request.json["message"]
-
     answer, source, source_path = search_query(user_query)
 
     return jsonify({
@@ -98,7 +64,7 @@ def ask():
         "path": source_path
     })
 
-#refresh data button (lateast update])
+#refresh data button lateast update])
 @app.route("/refresh")
 def refresh():
 
