@@ -5,6 +5,23 @@ import subprocess
 
 app = Flask(__name__)
 
+
+def get_best_sentence(content, query_words):
+    sentences = content.split(".")
+    best = ""
+    best_score = 0
+
+    for s in sentences:
+        s_lower = s.lower()
+        score = sum(1 for w in query_words if w in s_lower)
+
+        if score > best_score:
+            best_score = score
+            best = s
+
+    return best.strip() if best else content
+
+
 def search_query(query):
     words = preprocess(query)
     words = expand_words(words)
@@ -20,33 +37,41 @@ def search_query(query):
         JOIN documents
         ON keywords.doc_id = documents.id
         WHERE keywords.word = ?
+        LIMIT 50
         """, (word,))
 
         rows = cur.fetchall()
 
         for row in rows:
             doc_id = row[0]
+            content = row[2]
 
             if doc_id not in results:
                 results[doc_id] = {
                     "name": row[1],
-                    "content": row[2],
+                    "content": content,
                     "path": row[3],
                     "score": 0
                 }
+
+            # base score
             results[doc_id]["score"] += 1
+
+            # phrase boost
+            if query.lower() in content.lower():
+                results[doc_id]["score"] += 5
 
     conn.close()
 
     if not results:
-        return "Sorry, I couldn't find relevant information.", "",""
+        return "Sorry, I couldn't find relevant information.", "", ""
 
-    # rank results by score
     best = max(results.values(), key=lambda x: x["score"])
 
-    return best["content"], best["name"], best["path"]
+    best_answer = get_best_sentence(best["content"], words)
+    return best_answer, best["name"], best["path"]
 
-#routes
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -54,7 +79,6 @@ def home():
 
 @app.route("/ask", methods=["POST"])
 def ask():
-
     user_query = request.json["message"]
     answer, source, source_path = search_query(user_query)
 
@@ -64,12 +88,10 @@ def ask():
         "path": source_path
     })
 
-#refresh data button lateast update])
+
 @app.route("/refresh")
 def refresh():
-
     try:
-
         subprocess.run(["python", "scraper.py"])
         subprocess.run(["python", "pdf_processor.py"])
         subprocess.run(["python", "indexer.py"])
@@ -78,6 +100,7 @@ def refresh():
 
     except Exception as e:
         return jsonify({"message": f"Error: {str(e)}"})
+
 
 if __name__ == "__main__":
     app.run(debug=True)

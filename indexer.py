@@ -6,7 +6,6 @@ text_folder = "data/text"
 
 
 def chunk_text(text, chunk_size=2):
-
     chunks = []
     paragraph_sentences = []
 
@@ -17,10 +16,7 @@ def chunk_text(text, chunk_size=2):
         if not line:
             continue
 
-        # -------- TABLE ROW --------
         if "|" in line:
-
-            # flush paragraph sentences
             if paragraph_sentences:
                 for i in range(0, len(paragraph_sentences), chunk_size):
                     chunk = ". ".join(paragraph_sentences[i:i + chunk_size]).strip()
@@ -28,23 +24,21 @@ def chunk_text(text, chunk_size=2):
                         chunks.append(chunk)
                 paragraph_sentences = []
 
-            # normalize table row into readable text
             parts = [p.strip() for p in line.split("|") if p.strip()]
 
-            if len(parts) >= 2:
-                # convert into meaningful sentence
-                chunk = f"{parts[0]} offers courses like {', '.join(parts[1:])}."
+            if len(parts) == 2:
+                chunk = f"{parts[0]} is {parts[1]}."
+            elif len(parts) > 2:
+                chunk = f"{parts[0]} includes {', '.join(parts[1:])}."
             else:
                 chunk = line
 
             chunks.append(chunk)
 
-        # -------- PARAGRAPH --------
         else:
             sentences = [s.strip() for s in line.split(".") if s.strip()]
             paragraph_sentences.extend(sentences)
 
-    # flush remaining paragraph sentences
     if paragraph_sentences:
         for i in range(0, len(paragraph_sentences), chunk_size):
             chunk = ". ".join(paragraph_sentences[i:i + chunk_size]).strip()
@@ -55,7 +49,6 @@ def chunk_text(text, chunk_size=2):
 
 
 def build_index():
-
     create_tables()
     conn = get_connection()
     cur = conn.cursor()
@@ -63,55 +56,4 @@ def build_index():
     print("\nStarting Indexing\n")
 
     for file in os.listdir(text_folder):
-
         if not file.endswith(".txt"):
-            continue
-
-        path = os.path.join(text_folder, file)
-
-        with open(path, "r", encoding="utf-8") as f:
-            text = f.read()
-
-        chunks = chunk_text(text)
-
-        for chunk in chunks:
-
-            # avoid duplicates
-            cur.execute(
-                "SELECT id FROM documents WHERE content=?",
-                (chunk,)
-            )
-            existing = cur.fetchone()
-
-            if existing:
-                continue
-
-            print("Indexing:", chunk[:80])
-
-            cur.execute(
-                "INSERT INTO documents(name, content, path) VALUES(?, ?, ?)",
-                (file, chunk, path)
-            )
-
-            doc_id = cur.lastrowid
-
-            # -------- KEYWORD PROCESSING --------
-            words = preprocess(chunk)
-
-            # remove duplicates
-            unique_words = set(words)
-
-            for word in unique_words:
-                cur.execute(
-                    "INSERT INTO keywords(word, doc_id) VALUES(?, ?)",
-                    (word, doc_id)
-                )
-
-    conn.commit()
-    conn.close()
-
-    print("\nIndexing Completed\n")
-
-
-if __name__ == "__main__":
-    build_index()

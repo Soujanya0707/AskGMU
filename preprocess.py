@@ -32,4 +32,7 @@ def expand_words(words):
                 synonym = lemma.name().lower().replace("_", " ")
                 expanded.add(synonym)
 
+                if " " not in synonym:
+                    expanded.add(synonym)
+
     return list(expanded)
