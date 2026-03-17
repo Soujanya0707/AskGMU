@@ -1,173 +1,121 @@
-To, 
-Sir/ Madam, GANGADHAR MEHER UNIVERSITY, 
-AMRUTA VIHRA, SAMBALPUR-768004 
-No a5 /GMU 
-Memo No. All Heads/ Coordinators of Schools, 
-Gangadhar Meher University, Date 
-You are hereby requested to inform 1 year U.G. (Semester-II) students 
-of your concerned schools to fill-up the entries in the format for allotting MDC-II and 
-Minor-II courses. The filled in format shall be forwarded to the Academic Section on or 
-before 05.03.2026 by 4.00 PM. Further, students should be advised to choose one 
-subject as Multi Disciplinary Course in Semester -I. Also students shall choose 
-one subject as Core- III (Minor -II), which shall be studied for 2nd, 4th and 6h. 
-semester respectively. English is a compulsory subject for all students for 
-Semester- II. They should be instructed to exercise their option cautiously to avoid any 
-confusion / complication in future. The list of MDC -II and Core III (Minor-1) 
-courses offered by different schools is annexed for reference. aoloz202b 
-Date Chairman, PG Council 
-Copy to Notice Boards / PA to VC/ PA to Registrar / COE / OIC, Academics / Deputy Registrar 
-System Manager Cell for information and necessary action. 
-Chairman, PG Council 
-List of Major Discipline Courses (MDC)) & Core III (Minor -II) offered by different Schools 
-For students of Semester -II (2025-26) 
-SI. 
-No. 
-3 
-4 
-7 
-8 Name of the 
-Schools 
-12 Anthropology 
-(Arts & Science) 
-Botany 
-Chemistry 
-Physics 
-Comp. Science 
-Zoology 
-Mathematics 
-(Arts & Science) 
-Statistics 
-(Arts & Science) 
-Economics 
-.10 Education 
-English 
-Geography 
-(Arts & Science) Name of Papers (To be opted by students of other schools) 
-MDC – II (Sem-II) 
-Sustainable Tourism 
-Tissue Culture of Plants 
-Environmental Chemistry 
-Bio-Physics 
-Introducation to Web 
-Technologies 
-Vermitechnology 
-Linear Programming Problem 
-Survival Analysis 
-Demography 
-Historical Bases of Indian 
-Education 
-Gender Human Rights 
-Climatology 1. Application of Anthropology 
-3. 2. Introduction to Biological Anthropology 
-Demographic Anthropology 
-1. Cell Biology 
-2. Basic Molecular Biology 
-3. Natural Resource Management 
-2. 1. Atomic Structure, Periodicity of 
-3. 
-2 
-3. (For Semester 2"d, 4" & 6" respectively) 
-1. 
-2. Core -III (Minor) 
-3. 
-2. 
-3. Elements and Chemical Bonding 
-3. Algorithm Design Techniques Fundamental Organic Chemistry 
-1. Cell-Biology States of matter and lonic equilibrium 
-Electricity and Magnetism (P-I) 
-2. Physiology-Life Sustaining System 
-Developmental Biology Wave and Optics 
-Solid State Physics 
-1. Introduction to Algebra & Number Data Structure 
-2. Object Oriented Programming using C++ 
-3. 
-1. 
-2. Theory 
-1. Probability and Distribution 
-2. Statistical Quality Control Linear Algebra 
-3. Non-Parametric Statistical Inference Numerical Analysis & Scientific 
-Computing 
-1. Basic Economics- II 
-2. Public Economics I 
-3. Money & Banking 
-1. Pedagogical Perspective in Education 
-Knowledge and Curriculum 
-Fundamentals of Educational Research 
-British Poetry and Drama 
-The Romantic Revival and English 
-Literature of the Period 
-3. Indian Myths and Epics: New 
-Perspectives 
-1. Population Geography 
-2. Remote Sensing and GIS 
-3. Geography of India 
-14 
-16 
-17 
-18 
-19 
-20 
-21 
-22 Hindi 
-History 
-Odia 
-Philosophy 
-Pol. Science 
-Psychology 
-Sanskrit 
-Sociology 
-B.Sc. IST 
-Commerce Avadharana aur prayojanmulak 
-.Aayak 
-History of Environment and 
-ecology of Modern India 
-Critical Thinking & Applied 
-Reasning 
-Understanding Gandhi and 
-Ambedkar 
-Educational Psychology 
-Fundamentals of Sanskrit Grammar 
-Crime and Society 
-Programming on C++ 
-Entreprenuurship Development |2. 
-2. aIG4 AA 
-|2. 3. 
-3. History of India-III (C.1857- 1950) 
-3. |2. History of India-II: From State formation 
-to carly medieval (300 BCE-750CE) 
-1. Introduction to Philosophy 
-1. 1. Krishna Bhakti and Retikaleen Kavita 
-Sahitya aur sandarbh Vividhavad 
-2. 1. 
-2. 
-3. 
-1. 
-2. 
-. 
-|2. 
-1. 1. Basic Psychological Process 
-3. 
-3. 
-1. Tulsi Sahitya aur Darshan 
-|2. History of India (From Pre-History to 
-Vedic Age) 
-3. Government and Politics in Odisha Introduction to Moral Philosophy 
-Symbolic Logic 
-Comparative Governments 
-3. Likhana Kala India Politics 
-Basic Developmental Process 
-Introductory Psychology 
-Drama and History of Sanskrit Literature 
-Sri Jagannath Skandamahapurana (Utkal 
-Khand 
-Indian Society 
-Sociology of Environment 
-Sociology of Health 
-Data Structure Using C 
-Operating System 
-Software Engineering 
-Business Statistics & Data Interpretation 
-2. Business Regulatory Framework 
-3. Human Resource Management or 
-Mathematics 
-Chairman, PG Council 
+GANGADHAR MEHER UNIVERSITY,
+AMRUTA VIHRA, SAMBALPUR-768004
+No a5 aoloz202b
+/GMU Date
+To,
+All Heads/ Coordinators of Schools,
+Gangadhar Meher University,
+Sir/ Madam,
+You are hereby requested to inform 1 year U.G. (Semester-II) students
+of your concerned schools to fill-up the entries in the format for allotting MDC-II and
+Minor-IIc ourses. The filled in format shall be forwarded to the Academic Section on or
+before 05.03.2026 by 4.00 PM. Further, students should be advised to choose one
+subject as Multi Disciplinary Course in Semester - I. Also students shall choose
+one subject as Core- III (Minor - II), which shall be studied for 2nd, 4th and 6h.
+semester respectively. English is a compulsory subject for all students for
+Semester- II. They should be instructed to exercise their option cautiously to avoid any
+confusion / complication in future. The list of MDC - II and Core III (Minor-1)
+courses offered by different schools is annexed for reference.
+Chairman, PG Council
+Memo No. Date
+Copy to Notice Boards / PA to VC/ PA to Registrar / COE / OIC, Academics / Deputy Registrar
+System Manager Cell for information and necessary action.
+Chairman, PG Council
+List of Major Discipline Courses (MDC)) & Core III (Minor -II) offered by different Schools
+For students of Semester - II (2025-26)
+SI. Name of the Name of Papers (To be opted by students of other schools)
+No. Schools
+Core -III( Minor)
+MDC– II( Sem-II)
+(For Semester 2"d, 4" & 6" respectively)
+1. Application of Anthropology
+Anthropology Sustainable Tourism
+2. Introduction to Biological Anthropology
+(Arts & Science)
+3. Demographic Anthropology
+1. Cell Biology
+Botany Tissue Culture of Plants
+2. Basic Molecular Biology
+3. Natural Resource Management
+1. Atomic Structure, Periodicity of
+3 Chemistry Environmental Chemistry
+Elements and Chemical Bonding
+2. Fundamental Organic Chemistry
+3. States of matter and lonic equilibrium
+Electricity and Magnetism (P-I)
+4 Physics
+Bio-Physics 2 Wave and Optics
+3. Solid State Physics
+Comp. Science Introducation to Web 1. Data Structure
+Technologies 2. Object Oriented Programming using C++
+3. Algorithm Design Techniques
+Zoology Vermitechnology 1. Cell-Biology
+2. Physiology-Life Sustaining System
+3. Developmental Biology
+Linear Programming Problem 1. Introduction to Algebra & Number
+7 Mathematics
+Theory
+(Arts & Science)
+2. Linear Algebra
+3. Numerical Analysis & Scientific
+Computing
+8 Statistics Survival Analysis 1. Probability and Distribution
+2. Statistical Quality Control
+(Arts & Science)
+3. Non-Parametric Statistical Inference
+1. Basic Economics- II
+Economics Demography
+2. Public Economics I
+3. Money & Banking
+Historical Bases of Indian 1. Pedagogical Perspective in Education
+.10 Education
+Education 2. Knowledge and Curriculum
+3. Fundamentals of Educational Research
+Gender Human Rights 1. British Poetry and Drama
+English
+2. The Romantic Revival and English
+Literature of the Period
+3. Indian Myths and Epics: New
+Perspectives
+12 Geography Climatology 1. Population Geography
+(Arts & Science) 2. Remote Sensing and GIS
+3. Geography of India
+Hindi Avadharana aur prayojanmulak 1. Krishna Bhakti and Retikaleen Kavita
+.Aayak |2. Sahitya aur sandarbh Vividhavad
+3. Tulsi Sahitya aur Darshan
+14 History History of Environment and 1. History of India (From Pre-History to
+ecology of Modern India Vedic Age)
+|2. History of India-II: From State formation
+to carly medieval (300 BCE-750CE)
+3. History of India-III (C.1857-1950)
+Odia
+2. aIG4 AA
+16 Philosophy Critical Thinking & Applied
+1. Introduction to Philosophy
+Reasning
+|2. Introduction to Moral Philosophy
+3. Symbolic Logic
+17 Pol. Science Understanding Gandhi and
+1. Comparative Governments
+Ambedkar 2. India Politics
+3. Government and Politics in Odisha
+18 Psychology Educational Psychology
+1. Basic Psychological Process
+2. Basic Developmental Process
+3. Introductory Psychology
+19 Sanskrit Fundamentals of Sanskrit Grammar
+1. Drama and History of Sanskrit Literature
+2. Sri Jagannath Skandamahapurana (Utkal
+Khand
+3. Likhana Kala
+20 Sociology Crime and Society . Indian Society
+|2. Sociology of Environment
+3. Sociology of Health
+21 B.Sc. IST Programming on C++ 1. Data Structure Using C
+|2. Operating System
+3. Software Engineering
+22 Commerce Entreprenuurship Development 1. Business Statistics & Data Interpretation
+2. Business Regulatory Framework
+3. Human Resource Management or
+Mathematics
+Chairman, PG Council

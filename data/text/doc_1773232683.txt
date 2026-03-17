@@ -1,9 +1,4 @@
-Applied Econometrics and Its
-Applications in Business ResearchApplied Econometrics and Its
-Applications in Business ResearchPM USHA Sponsored
-National Workshop on
-RESEARCH METHODOLOGY
-13th – 14th March 2026About the Workshop
+About the Workshop
 Econometrics plays an important role in business and management research. It helps
 researchers analyze data, test theories, and make informed decisions. This two-day
 workshop aims to provide participants with both theoretical understanding and
@@ -15,65 +10,70 @@ To provide clear understanding of econometric concepts
 To introduce commonly used econometric models in business research
 To provide hands-on training in data analysis and interpretation
 To enhance research skills of faculty members, scholars, and students
+Resource Persons PM USHA Sponsored
+National Workshop on
 Dr. Dukhabandhu Sahoo
-Associate Professor
+Associate Professor RESEARCH METHODOLOGY
 School of Humanities,
 Social Sciences & Management
-Indian Institute of Technology, Bhubaneswar
+Indian Institute of Technology, Bhubaneswar AApppplliieedd EEccoonnoommeettrriiccss aanndd IIttss
+Dr. Bimal Kishore Sahoo
+AApppplliiccaattiioonnss iinn BBuussiinneessss RReesseeaarrcchh
+Associate Professor (Economics)
+Department of Humanities and Social Sciences
+Indian Institute of Technology, Kharagpur 13th – 14th March 2026
 Dr. Ashish Dash
+Organised by
 Assistant Professor
 Department of Economics
-Odisha State Open UniversitySchool of Commerce
-Gangadhar Meher University, Amruta Vihar, SambalpurResource Persons
-Organised byDr. Bimal Kishore Sahoo
-Associate Professor (Economics) 
-Department of Humanities and Social Sciences
-Indian Institute of Technology, Kharagpur
-Who Should Participate
-The workshop is open to researchers from all disciplines, academicians,
-research scholars, and industry professionals.Patrons
+School of Commerce
+Odisha State Open University
+Gangadhar Meher University, Amruta Vihar, Sambalpur
+Patrons
+Day 1
 Prof. Susanta Kumar Das, Vice Chancellor (I/C)
-Prof. Gyana Ranjan Swain, Chairman, PG Council
-Shri Sanat Kumar Naik, Registrar
+Prof. Gyana Ranjan Swain, Chairman, PG Council Introduction to Applied Econometrics in Business Research
+Shri Sanat Kumar Naik, Registrar Introduction to Econometrics: Meaning, objectives, and role of econometrics
 Dr. Chandan Sahu, Deputy Registrar (I/C)
+in business research.
 Shri Jagannath Rout, Comptroller of Finance
+Importance and Applications: Use of econometrics in policy making,
+Workshop Director business analysis, financial markets, and development studies.
+Prof (Dr.) Shyama Charan Acharya Types of Data in Econometrics:
+Cross-sectional data
+Conveners
+Time series data
+Mr. Subash Ch Jhankar, Assistant Professor & Coordinator
+Panel data
+Dr. Priyabrata Panda, Assistant Professor
+Sources and basic issues in data.
+Dr. Gnyana Ranjan Bal, Assistant Professor
+Ms.Saroja Meher, Assistant Professor
+Day 2
+Co Conveners
+Advanced Econometric Techniques for Business Analytics
+Dr. Khirod Ch. Maharana, Assistant Professor
+Autoregressive Distributed Lag (ARDL) Model: Concept, lag selection,
+Dr. Mukesh Ku Sharma, Assistant Professor
+bounds test, and estimation of short-run and long-run relationships.
+Dr. Pooja Bai Kewat, Assistant Professor
+Non-linear ARDL (NARDL) : Understanding asymmetric relationships
 Organizing Secretaries
+and estimation of positive and negative shocks.
 Mr. Ambaris Pratap Singh, Assistant Professor
+Estimation and Diagnostic Tests: Model estimation, interpretation of
 Ms. Jhansi Rani Parida, Assistant Professor
+results, and diagnostic tests such as serial correlation,
 Ms. Shubheschha Nayak, Assistant Professor
+heteroskedasticity, normality, and stability tests.
 Mr. Bikash Sethy, Research Scholar
 Ms. Aruna Sharma, Research Scholar
+Who Should Participate
+The workshop is open to researchers from all disciplines, academicians,
+research scholars, and industry professionals.
 Registration Link: https://forms.gle/uMPKzazLwhq9UgSM6
 SCAN TO
 REGISTER
 For Registration, Contact
 Email: socseminar@gmail.com
-Mobile: 9938525597 / 9583565354Conveners
-Mr. Subash Ch Jhankar, Assistant Professor & Coordinator
-Dr. Priyabrata Panda, Assistant Professor
-Dr. Gnyana Ranjan Bal, Assistant Professor
-Ms.Saroja Meher, Assistant ProfessorDay 1
-Introduction to Applied Econometrics in Business Research
-Introduction to Econometrics: Meaning, objectives, and role of econometrics
-in business research.
-Importance and Applications: Use of econometrics in policy making,
-business analysis, financial markets, and development studies.
-Types of Data in Econometrics:
-Cross-sectional data
-Time series data
-Panel data
-Sources and basic issues in data.
-Day 2
-Advanced Econometric Techniques for Business Analytics
-Autoregressive Distributed Lag (ARDL) Model: Concept, lag selection,
-bounds test, and estimation of short-run and long-run relationships.
-Non-linear ARDL (NARDL) : Understanding asymmetric relationships
-and estimation of positive and negative shocks.
-Estimation and Diagnostic Tests: Model estimation, interpretation of
-results, and diagnostic tests such as serial correlation,
-heteroskedasticity, normality, and stability tests.Workshop Director
-Prof (Dr.) Shyama Charan Acharya
-Co Conveners
-Dr. Khirod Ch. Maharana, Assistant Professor
-Dr. Mukesh Ku Sharma, Assistant Professor
-Dr. Pooja Bai Kewat, Assistant Professor
+Mobile: 9938525597 / 9583565354

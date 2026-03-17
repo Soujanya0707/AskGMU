@@ -66,13 +66,17 @@ for file in os.listdir(pdf_folder):
 
     print("Processing:", file)
 
-    text = process_pdf(pdf_path, ocr_path)
+    try:
+        text = process_pdf(pdf_path, ocr_path)
 
-    if text:
-        with open(txt_path, "w", encoding="utf-8") as f:
-            f.write(text)
-        print("Saved:", file)
-    else:
-        print("Failed:", file)
+        if text:
+         with open(txt_path, "w", encoding="utf-8") as f:
+             f.write(text)
+         print("Saved:", file)
+        else:
+         print("Skipped (no text):", file)
+
+    except Exception as e:
+      print("Failed:", file, "→", e)
 
 print("\nDone\n")

@@ -5,17 +5,15 @@ from database import get_connection, create_tables
 text_folder = "data/text"
 
 
-def chunk_text(text, chunk_size=2):
+def chunk_text(text, chunk_size=3):
+
     chunks = []
     paragraph_sentences = []
-
     lines = text.split("\n")
-
     for line in lines:
         line = line.strip()
         if not line:
             continue
-
         if "|" in line:
             if paragraph_sentences:
                 for i in range(0, len(paragraph_sentences), chunk_size):
@@ -35,6 +33,7 @@ def chunk_text(text, chunk_size=2):
 
             chunks.append(chunk)
 
+        # -------- PARAGRAPH 
         else:
             sentences = [s.strip() for s in line.split(".") if s.strip()]
             paragraph_sentences.extend(sentences)
@@ -49,6 +48,7 @@ def chunk_text(text, chunk_size=2):
 
 
 def build_index():
+
     create_tables()
     conn = get_connection()
     cur = conn.cursor()
@@ -56,4 +56,46 @@ def build_index():
     print("\nStarting Indexing\n")
 
     for file in os.listdir(text_folder):
+
         if not file.endswith(".txt"):
+            continue
+
+        path = os.path.join(text_folder, file)
+
+        with open(path, "r", encoding="utf-8") as f:
+            text = f.read()
+
+        chunks = chunk_text(text)
+
+        for chunk in chunks:
+
+            # avoid duplicates
+            cur.execute(
+                "SELECT id FROM documents WHERE content=?",
+                (chunk,)
+            )
+            existing = cur.fetchone()
+
+            if existing:
+                continue
+
+            print("Indexing:", chunk[:80])
+
+            cur.execute(
+                "INSERT INTO documents(name, content, path) VALUES(?, ?, ?)",
+                (file, chunk, path)
+            )
+
+            doc_id = cur.lastrowid
+            words = preprocess(chunk)
+            unique_words = set(words)
+            for word in unique_words:
+                cur.execute(
+                    "INSERT INTO keywords(word, doc_id) VALUES(?, ?)",
+                    (word, doc_id)
+                )
+    conn.commit()
+    conn.close()
+    print("\nIndexing Completed\n")
+if __name__ == "__main__":
+    build_index()

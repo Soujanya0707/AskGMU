@@ -17,7 +17,7 @@ def create_tables():
         """
         CREATE TABLE IF NOT EXISTS documents (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL UNIQUE,
+            name TEXT NOT NULL,
             content TEXT NOT NULL,
             path TEXT NOT NULL
         )
