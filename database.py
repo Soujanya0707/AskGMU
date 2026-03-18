@@ -1,13 +1,10 @@
 import sqlite3
 from pathlib import Path
 
-
 DB_PATH = Path("askgmu.db")
-
 
 def get_connection():
     return sqlite3.connect(DB_PATH)
-
 
 def create_tables():
     conn = get_connection()
@@ -41,6 +38,5 @@ def create_tables():
         ON keywords(word)
         """
     )
-
     conn.commit()
     conn.close()

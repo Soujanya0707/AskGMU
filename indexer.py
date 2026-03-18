@@ -4,7 +4,6 @@ from database import get_connection, create_tables
 
 text_folder = "data/text"
 
-
 def chunk_text(text, chunk_size=3):
 
     chunks = []
@@ -30,10 +29,9 @@ def chunk_text(text, chunk_size=3):
                 chunk = f"{parts[0]} includes {', '.join(parts[1:])}."
             else:
                 chunk = line
-
             chunks.append(chunk)
 
-        # -------- PARAGRAPH 
+        # -------- paragraph 
         else:
             sentences = [s.strip() for s in line.split(".") if s.strip()]
             paragraph_sentences.extend(sentences)
@@ -45,7 +43,6 @@ def chunk_text(text, chunk_size=3):
                 chunks.append(chunk)
 
     return chunks
-
 
 def build_index():
 
@@ -81,9 +78,17 @@ def build_index():
 
             print("Indexing:", chunk[:80])
 
+           
+            pdf_name = file.replace(".txt", ".pdf")
+            url_file = os.path.join("data/pdfs", pdf_name + ".url")
+            source_url = ""
+            if os.path.exists(url_file):
+                with open(url_file, "r") as f:
+                    source_url = f.read().strip()
+
             cur.execute(
                 "INSERT INTO documents(name, content, path) VALUES(?, ?, ?)",
-                (file, chunk, path)
+                (file, chunk, source_url)
             )
 
             doc_id = cur.lastrowid

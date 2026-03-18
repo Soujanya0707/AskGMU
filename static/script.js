@@ -11,7 +11,8 @@ function addMessage(sender, text, source = "", path = "") {
     if (source) {
       msg.innerHTML +=
         "<div class='source'>Source: " + source +
-        " — <a href='/open_file?path=" + encodeURIComponent(path) + "' target='_blank'>Open File</a></div>";
+        (path ? " — <a href='" + path + "' target='_blank'>Open PDF</a>" : "") +
+        "</div>";
     }
   }
 

@@ -28,7 +28,11 @@ def download_pdfs_from_table(url):
                     href = urljoin(url, href)
                 pdf_name = href.split("/")[-1]
                 path = f"data/pdfs/{pdf_name}"
-                print(path)
+
+                url_path = f"data/pdfs/{pdf_name}.url"
+                with open(url_path, "w") as f:
+                    f.write(href)
+
                 if os.path.exists(path):
                     continue
                 pdf_data = requests.get(href)

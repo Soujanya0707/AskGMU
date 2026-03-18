@@ -4,7 +4,6 @@ from nltk.corpus import stopwords, wordnet
 
 stop_words = set(stopwords.words("english"))
 
-
 def preprocess(text):
 
     text = text.lower()
@@ -20,11 +19,9 @@ def preprocess(text):
 
     return clean_words
 
-
 def expand_words(words):
 
     expanded = set(words)
-
     for word in words:
         for syn in wordnet.synsets(word)[:2]:   # limit synsets to avoid too many expansions
             for lemma in syn.lemmas()[:2]:
@@ -34,5 +31,4 @@ def expand_words(words):
 
                 if " " not in synonym:
                     expanded.add(synonym)
-
     return list(expanded)
