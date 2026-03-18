@@ -60,3 +60,9 @@ function refreshData() {
       addMessage("bot", "Error refreshing data");
     });
 }
+
+document.getElementById("userInput").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    sendMessage();
+  }
+});
