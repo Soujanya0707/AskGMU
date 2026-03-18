@@ -4,14 +4,19 @@
 <title>AskGMU Chatbot</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-<h2>AskGMU Chatbot</h2>
-<div id="chatbox"></div>
-<input id="userInput" placeholder="Ask about admissions, exams, notices.">
-<button onclick="sendMessage()">Send</button>
-<button onclick="refreshData()">Refresh Data</button>
+
+<div class="container">
+  <h2>AskGMU Chatbot</h2>
+  <p class="tagline">Ask about admissions, exams, and notices</p>
+  <div id="chatbox"></div>
+  <div class="input-row">
+    <input id="userInput" placeholder="Type your question...">
+    <button onclick="sendMessage()">Send</button>
+    <button class="refresh" onclick="refreshData()">Refresh Data</button>
+  </div>
+</div>
+
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>
