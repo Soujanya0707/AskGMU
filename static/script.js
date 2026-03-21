@@ -1,16 +1,29 @@
-function addMessage(sender, text, source = "", path = "") {
+function addMessage(sender, text, sources = []) {
   let chat = document.getElementById("chatbox");
   let msg = document.createElement("div");
   msg.className = "message " + sender;
 
   msg.textContent = text;
 
-  if (sender === "bot" && source) {
-    let src = document.createElement("div");
-    src.className = "source";
-    src.innerHTML = "Source: " + source +
-      (path ? ' — <a href="' + path + '" target="_blank">Open PDF</a>' : "");
-    msg.appendChild(src);
+  // show numbered list of top 5 sources below the answer
+  if (sender === "bot" && sources.length > 0) {
+    let srcDiv = document.createElement("div");
+    srcDiv.className = "source";
+    srcDiv.innerHTML = "<b>Top matching documents:</b>";
+
+    let ol = document.createElement("ol"); //Ordered list
+    for (let s of sources) {
+      let li = document.createElement("li");
+      if (s.path) {
+        li.innerHTML = s.name + ' — <a href="' + s.path + '" target="_blank">Open PDF</a>';
+      } else {
+        li.textContent = s.name;
+      }
+      ol.appendChild(li);
+    }
+
+    srcDiv.appendChild(ol);
+    msg.appendChild(srcDiv);
   }
 
   chat.appendChild(msg);
@@ -34,7 +47,7 @@ function sendMessage() {
   })
     .then(res => res.json())
     .then(data => {
-      addMessage("bot", data.answer, data.source, data.path);
+      addMessage("bot", data.answer, data.sources);
       input.disabled = false;
       input.focus();
     })

@@ -9,7 +9,7 @@ ocr_folder = "data/ocr_pdfs"
 os.makedirs(text_folder, exist_ok=True)
 os.makedirs(ocr_folder, exist_ok=True)
 
-MIN_TEXT_LENGTH = 80
+MIN_TEXT_LENGTH = 50
 
 
 def process_pdf(pdf_path, ocr_path):

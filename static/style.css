@@ -68,15 +68,37 @@ h2 {
   border-bottom-left-radius: 3px;
 }
 
+/* source section below bot answer */
 .source {
   font-size: 11px;
-  color: #888;
-  margin-top: 5px;
+  color: #555;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #b2eef1;
+}
+
+.source b {
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.source ol {
+  padding-left: 16px;
+  margin: 0;
+}
+
+.source ol li {
+  margin-bottom: 3px;
 }
 
 .source a {
   color: #1a73e8;
   text-decoration: none;
+}
+
+.source a:hover {
+  text-decoration: underline;
 }
 
 .input-row {
