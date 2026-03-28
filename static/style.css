@@ -145,3 +145,16 @@ button.refresh {
   background: #d1f9fc;
   color: #202124;
 }
+
+.date-badge {
+  display: inline-block;
+  background: #005ed0cb;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+  vertical-align: middle;
+  letter-spacing: 0.4px;
+}

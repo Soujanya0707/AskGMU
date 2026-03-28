@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import json
 from urllib.parse import urljoin
 
 dynamic_pages = [
@@ -19,26 +20,46 @@ def download_pdfs_from_table(url):
         if not table:
             print("No table found:", url)
             return
-        notices = []
-        
-        for link in table.find_all("a"):
+
+        rows = table.find_all("tr")
+
+        for row in rows:
+            cols = row.find_all("td")
+            if len(cols) < 4:
+                continue
+
+            # columns: Sl No | Date | Title | Download
+            date_text  = cols[1].get_text(strip=True)   # e.g. "26/03/2026"
+            title_text = cols[2].get_text(strip=True)   # e.g. "FORM FILL UP NOTICE"
+
+            link = row.find("a")
+            if not link:
+                continue
+
             href = link.get("href")
-            if href and ".pdf" in href.lower():
-                if not href.startswith("http"):
-                    href = urljoin(url, href)
-                pdf_name = href.split("/")[-1]
-                path = f"data/pdfs/{pdf_name}"
+            if not href or ".pdf" not in href.lower():
+                continue
 
-                url_path = f"data/pdfs/{pdf_name}.url"
-                with open(url_path, "w") as f:
-                    f.write(href)
+            if not href.startswith("http"):
+                href = urljoin(url, href)
 
-                if os.path.exists(path):
-                    continue
-                pdf_data = requests.get(href)
-                with open(path, "wb") as f:
-                    f.write(pdf_data.content)
-                print("Downloaded:", pdf_name)
+            pdf_name = href.split("/")[-1]
+            pdf_path = f"data/pdfs/{pdf_name}"
+
+            # always write/update metadata json (date+title stay fresh on every scrape)
+            meta = {"url": href, "date": date_text, "title": title_text}
+            with open(f"data/pdfs/{pdf_name}.meta.json", "w", encoding="utf-8") as f:
+                json.dump(meta, f)
+
+            if os.path.exists(pdf_path):
+                print(f"Already downloaded: {pdf_name}")
+                continue
+
+            pdf_data = requests.get(href)
+            with open(pdf_path, "wb") as f:
+                f.write(pdf_data.content)
+            print(f"Downloaded: {pdf_name}  [{date_text}]  {title_text}")
+
     except Exception as e:
         print("PDF scan failed:", url, "→", e)
 
